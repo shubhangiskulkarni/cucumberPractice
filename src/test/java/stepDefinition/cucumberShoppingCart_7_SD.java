@@ -11,72 +11,91 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class cucumberShoppingCart_7_SD {
-	
-	
-	WebDriver edgeDriver = new EdgeDriver();
+public class cucumberShoppingCart_7_SD extends BaseClass {
 
-
+	
 
 	@Given("User opens URL")
 	public void User_opens_URL() {
-		
-// TestStep #1
-		edgeDriver.get("http://tutorialsninja.com/demo/index.php");
-		
+
+		StartTheApp();
+
 	}
 
-	@Given("User updates currency to pound")
+	@And("User updates currency to pound")
 	public void update_to_pound() {
-// TestStep #2 		
-		WebElement we = edgeDriver.findElement(By.id("form-currency"));
-		we.click();
-		WebElement currency = edgeDriver.findElement(By.name("EUR"));
-		currency.click();
-
-	
+		
+		UpdateCurrencyToPound();
+		
 	}
+	
+	
+	@When("User waits for element to load")
+	public void waitForElement() throws InterruptedException {
+
+		WaitForElementHardCodedValue();
+		
+	}
+	
 
 	@Then("currency should be updated to pound")
 	public void validate_currency_is_set() {
-
-					WebElement we = edgeDriver.findElement(By.xpath("//*[@id=\"form-currency\"]/div/button/strong"));
-					System.out.println("Currency is set to- " + we.getText());
-					Assert.assertEquals("€", we.getText());
-	}
-
-	@When("User waits for element to load")
-	public void waitForElement() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		CheckCurrency();
+
 	}
 	
+
 	
+	
+//	==================================================================================================================
+	
+	
+	
+	
+
+
+
+
 	@Given("User try to find canon camera link")
 	public void validate_cameraLink_is_displayed() {
-		
-		WebElement camera = edgeDriver.findElement(By.xpath("//*[@id='content']/div[2]/div[4]/div/div/a/img"));
-		camera.click();
-		
+
+		CameraLinkIsDisplayed();
+
 	}
-	
-	
+
 	@And("User click on Camera link")
 	public void validate_CameraLink_Click() {
-		
-		WebElement addCameraToCart = edgeDriver.findElement(By.id("button-cart"));
-		addCameraToCart.click();
-		
+
+		ClickOnCamera();
+
 	}
-	
+
+	@Then("Camera link is open")
+	public void validate_CameraLink() {
+
+		cameraLinkisOpen();
+
+	}
+
 	@Given("Add to cart button is displayed")
 	public void validate_AddToCart_Displayed() {
-		
-		WebElement addCameraToCart = edgeDriver.findElement(By.id("button-cart"));
-		addCameraToCart.click();
 
+		ATCIsDisplayed();
+
+	}
+	@And ("User click on Add to cart button")
+	
+	public void click_On_ATC() {
+		
+		ClickOnATC();
 		
 	}
 	
-	
+	@Then("Error message is displayed")
+	public void Error_Msg_Displayed() {
+		
+		
+	}
+
 }

@@ -19,9 +19,23 @@
 @tag
 Feature: Launch the Application
 
-  @tag1
+  @tag.tag1
   Scenario: User opens home page and updates currency to pound
     Given User opens URL
     And User updates currency to pound
     When User waits for element to load
     Then currency should be updated to pound
+
+  @tag.tag2
+  Scenario: Try to order a canon EOS 5 D camera 
+    Given User try to find canon camera link
+    And User click on Camera link
+		When User waits for element to load
+    Then Camera link is open
+   
+  @tag.tag3
+  Scenario: Add to Cart 
+    Given Add to cart button is displayed
+    And  User click on Add to cart button
+    When User waits for element to load
+    Then Error message is displayed
