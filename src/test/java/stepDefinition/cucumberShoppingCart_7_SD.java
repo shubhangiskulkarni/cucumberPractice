@@ -1,8 +1,5 @@
 package stepDefinition;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
